@@ -7,7 +7,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class ScriptMetadataParser : CldrJsonParser
     {
-        public ScriptMetadataParser() : base(CldrJsonSchemas.ScriptMetadata)
+        public ScriptMetadataParser() : base(CldrJsonParser.Get("ScriptMetadata"))
         {
         }
     }

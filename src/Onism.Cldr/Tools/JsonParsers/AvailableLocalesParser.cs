@@ -7,7 +7,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class AvailableLocalesParser : CldrJsonParser
     {
-        public AvailableLocalesParser() : base(CldrJsonSchemas.AvailableLocales)
+        public AvailableLocalesParser() : base(CldrJsonParser.Get("AvailableLocales"))
         {
         }
     }

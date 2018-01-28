@@ -7,7 +7,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class DefaultContentParser : CldrJsonParser
     {
-        public DefaultContentParser() : base(CldrJsonSchemas.DefaultContent)
+        public DefaultContentParser() : base(CldrJsonParser.Get("DefaultContent"))
         {
         }
     }

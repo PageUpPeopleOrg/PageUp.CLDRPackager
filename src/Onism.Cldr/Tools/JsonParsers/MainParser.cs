@@ -8,7 +8,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class MainParser : CldrJsonParser
     {
-        public MainParser() : base(CldrJsonSchemas.Main)
+        public MainParser() : base(CldrJsonParser.Get("Main"))
         {
         }
 

@@ -8,7 +8,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class RbnfParser : CldrJsonParser
     {
-        public RbnfParser() : base(CldrJsonSchemas.Rbnf)
+        public RbnfParser() : base(CldrJsonParser.Get("Rbnf"))
         {
         }
 

@@ -8,7 +8,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class SegmentsParser : CldrJsonParser
     {
-        public SegmentsParser() : base(CldrJsonSchemas.Segments)
+        public SegmentsParser() : base(CldrJsonParser.Get("Segments"))
         {
         }
 

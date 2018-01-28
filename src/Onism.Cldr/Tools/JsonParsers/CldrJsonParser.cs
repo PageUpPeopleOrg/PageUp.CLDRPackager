@@ -1,6 +1,9 @@
 using Newtonsoft.Json.Linq;
 using NJsonSchema;
 using Onism.Cldr.Extensions;
+using System.IO;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Onism.Cldr.Tools.JsonParsers
 {
@@ -22,11 +25,21 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </remarks>
     internal abstract class CldrJsonParser
     {
+        internal static string Get(string name)
+        {
+            name = $"Onism.Cldr.Tools.JsonParsers.Schemas.{name}.txt";
+
+            using (var streamReader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(name)))
+            {
+                return streamReader.ReadToEnd();
+            }
+        }
+
         private readonly JsonSchema4 schema;
 
         protected CldrJsonParser(string schema)
         {
-            this.schema = JsonSchema4.FromJson(schema);
+            this.schema = LoadSchema(schema).Result;
         }
 
         /// <summary>
@@ -71,6 +84,11 @@ namespace Onism.Cldr.Tools.JsonParsers
         public virtual CldrJson PrepareForMerging(CldrLocale locale, JObject obj)
         {
             return new CldrJson(locale, obj); // by default no modifications
+        }
+
+        private async Task<JsonSchema4> LoadSchema(string schema)
+        {
+            return await JsonSchema4.FromJsonAsync(schema);
         }
     }
 }

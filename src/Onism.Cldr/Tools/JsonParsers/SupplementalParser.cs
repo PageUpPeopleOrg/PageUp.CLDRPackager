@@ -8,7 +8,7 @@ namespace Onism.Cldr.Tools.JsonParsers
     /// </summary>
     internal sealed class SupplementalParser : CldrJsonParser
     {
-        public SupplementalParser() : base(CldrJsonSchemas.Supplemental)
+        public SupplementalParser() : base(CldrJsonParser.Get("Supplemental"))
         {
         }
 

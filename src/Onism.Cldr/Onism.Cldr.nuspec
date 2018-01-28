@@ -3,15 +3,10 @@
   <metadata>
     <id>Onism.Cldr</id>
     <version>$version$</version>
-    <authors>Patryk Gołębiowski, Jon Skeet</authors>
-    <owners>Patryk Gołębiowski</owners>
-
-    <projectUrl>https://github.com/pgolebiowski/onism-cldr</projectUrl>
-    <licenseUrl>https://github.com/pgolebiowski/onism-cldr/blob/master/LICENSE</licenseUrl>
-
+    <projectUrl>https://github.com/PageUpPeopleOrg/PageUp.CLDRPackager</projectUrl>
+    <licenseUrl>https://github.com/PageUpPeopleOrg/PageUp.CLDRPackager/blob/master/LICENSE</licenseUrl>
     <description>Onism is a high-performance CLDR library for .NET.</description>
-
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>cldr globalization internationalization localization unicode icu</tags>
     <dependencies>
       <dependency id="Newtonsoft.Json" version="8.0.3" />
@@ -20,6 +15,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="obj\Release\Onism.Cldr.dll" target="lib" />
+    <file src="obj\Release\netstandard2.0\Onism.Cldr.dll" target="lib" />
   </files>
 </package>

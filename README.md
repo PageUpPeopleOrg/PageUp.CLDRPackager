@@ -1,11 +1,4 @@
-[![][build-img]][build]
-[![][nuget-img]][nuget]
-
-[build]:     https://ci.appveyor.com/project/PatrykGobiowski/onism-cldr
-[build-img]: https://ci.appveyor.com/api/projects/status/hrpmwirp95ib56qb?svg=true
-[nuget]:     https://www.nuget.org/packages/Onism.Cldr
-[nuget-img]: https://badge.fury.io/nu/Onism.Cldr.svg
-
+[![Build status](https://ci.appveyor.com/api/projects/status/vu8g9pkdo2mh598o?svg=true)](https://ci.appveyor.com/project/sk180579/pageup-cldrpackager)
 
 # Onism
 High-performance CLDR library for .NET. It allows you to build an efficient binary representation of CLDR data and to consume this representation easily.

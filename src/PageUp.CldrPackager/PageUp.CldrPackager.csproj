@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Tools\JsonParsers\Schemas\AvailableLocales.txt" />
+    <None Remove="Tools\JsonParsers\Schemas\DefaultContent.txt" />
+    <None Remove="Tools\JsonParsers\Schemas\Main.txt" />
+    <None Remove="Tools\JsonParsers\Schemas\Rbnf.txt" />
+    <None Remove="Tools\JsonParsers\Schemas\ScriptMetadata.txt" />
+    <None Remove="Tools\JsonParsers\Schemas\Segments.txt" />
+    <None Remove="Tools\JsonParsers\Schemas\Supplemental.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\AvailableLocales.txt" />
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\DefaultContent.txt" />
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\Main.txt" />
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\Rbnf.txt" />
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\ScriptMetadata.txt" />
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\Segments.txt" />
+    <EmbeddedResource Include="Tools\JsonParsers\Schemas\Supplemental.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="NJsonSchema" Version="9.10.19" />
+    <PackageReference Include="protobuf-net" Version="2.3.3" />
+  </ItemGroup>
+
+</Project>

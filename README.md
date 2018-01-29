@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/vu8g9pkdo2mh598o?svg=true)](https://ci.appveyor.com/project/sk180579/pageup-cldrpackager)
+[![Build status](https://ci.appveyor.com/api/projects/status/s7fyc6yska7sjxlo?svg=true)](https://ci.appveyor.com/project/PageUp/pageup-cldrpackager)
 
 # Onism
 High-performance CLDR library for .NET. It allows you to build an efficient binary representation of CLDR data and to consume this representation easily.

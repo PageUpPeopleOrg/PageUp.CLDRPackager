@@ -5,5 +5,6 @@ dotnet: 2.1.4
 script:
 - dotnet restore src
 - dotnet build -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj
+- dotnet test src/PageUp.CldrPackager.Test/PageUp.CldrPackager.Test.csproj
 - dotnet pack -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj
 - dotnet nuget push src/PageUp.CldrPackager/bin/release/PageUp.CldrPackager.1.0.0.nupkg -k $NUGET_API_KEY -s $NUGET_URL

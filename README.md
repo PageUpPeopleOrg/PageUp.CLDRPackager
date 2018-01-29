@@ -1,48 +1,23 @@
 [![Build Status](https://travis-ci.org/PageUpPeopleOrg/PageUp.CldrPackager.svg?branch=master)](https://travis-ci.org/PageUpPeopleOrg/PageUp.CldrPackager)
 
-# Onism
-High-performance CLDR library for .NET. It allows you to build an efficient binary representation of CLDR data and to consume this representation easily.
+.NET Standard compliant CLDR (Common Locale Definition Library. 
+Visit http://cldr.unicode.org/ for more information) library which can be consumed by monolith and microservices.
 
-## Usage
-How to get the name of the first month in the Hebrew calendar in British English? Couldn't be easier!
+### CLDR Packager
+
+Its job is to provide parsing mechanism for CLDR Json data (say https://www.npmjs.com/package/cldr-dates-modern).
+
+The parser forms a tree like structure and provide meaningful APIs to access relevant data. The data can also be written to (and read from) the binary file as illustrated below
 
 ```csharp
 var data = CldrData.LoadFromFile("cldr.bin");
-var path = "dates.calendars.hebrew.months.format.abbreviated.1";
-
-Console.WriteLine(data.GetValue(path, enGB)); // Tishri
+var path = "dates.calendars.gregorian.months.format.abbreviated.1";
+Console.WriteLine(data.GetValue(path, enGB)); 
 ```
 
 ## Wiki
-The [wiki][0] is the best place to learn about Onism. It includes, but is not limited to:
+To know more, please visit https://github.com/pgolebiowski/Onism.Cldr/wiki
 
-  * [Getting started][1],
-  * [What is CLDR?][2],
-  * [Subsetting algorithm][3],
-  * [Solving CLDR redundancy][4],
-  * [Exemplary use case][5],
-  * [The meaning of Onism][6].
-
-[0]:https://github.com/pgolebiowski/Onism.Cldr/wiki
-[1]:https://github.com/pgolebiowski/Onism.Cldr/wiki/Getting-started
-[2]:https://github.com/pgolebiowski/onism-cldr/wiki/About-CLDR
-[3]:https://github.com/pgolebiowski/onism-cldr/wiki/Subsetting-algorithm
-[4]:https://github.com/pgolebiowski/onism-cldr/wiki/Solving-CLDR-redundancy
-[5]:https://github.com/pgolebiowski/onism-cldr/wiki/Hebrew-month-names
-[6]:https://github.com/pgolebiowski/onism-cldr/wiki/The-meaning-of-Onism
-
-
-## Contributing
-[![][gitter-img]][gitter] [![][email-img]](mailto:ortorektyk@gmail.com)
-
-Star the project, give feedback, suggest an improvement you need, or just tell me about your day :smile: Feel free to open an [issue] or to submit a [pull request].
 
 ## License
 [The MIT License](LICENSE). Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy or substantial use of this work.
-
-
-[issue]:https://github.com/pgolebiowski/onism-cldr/issues
-[pull request]:https://github.com/pgolebiowski/onism-cldr/pulls
-[gitter-img]:https://img.shields.io/gitter/room/pgolebiowski/onism-cldr.svg
-[gitter]:https://gitter.im/pgolebiowski/onism-cldr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-[email-img]:https://img.shields.io/badge/email-to%20ortorektyk%40gmail.com-brightgreen.svg

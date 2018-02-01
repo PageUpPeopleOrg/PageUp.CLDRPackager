@@ -24,15 +24,8 @@
     <EmbeddedResource Include="Tools\JsonParsers\Schemas\Supplemental.txt" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="Newtonsoft.Json" Version="6.0.8" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
-
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="NJsonSchema" Version="9.10.19" />
     <PackageReference Include="protobuf-net" Version="2.3.3" />
   </ItemGroup>

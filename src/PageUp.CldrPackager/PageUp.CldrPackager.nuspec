@@ -8,13 +8,5 @@
     <description>PageUp.CldrPackager is a high-performance CLDR library for .NET based on Onism Cldr library</description>
     <copyright>Copyright 2018</copyright>
     <tags>cldr globalization internationalization localization unicode icu</tags>
-    <dependencies>
-      <dependency id="Newtonsoft.Json" version="8.0.3" />
-      <dependency id="NJsonSchema" version="2.14.5967.31319" />
-      <dependency id="protobuf-net" version="2.0.0.668" />
-    </dependencies>
   </metadata>
-  <files>
-    <file src="obj\Release\netstandard2.0\PageUp.CldrPackager.dll" target="lib" />
-  </files>
 </package>

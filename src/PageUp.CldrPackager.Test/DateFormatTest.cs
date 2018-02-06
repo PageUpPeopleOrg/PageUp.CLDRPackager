@@ -7,54 +7,76 @@ namespace PageUp.CldrPackager.Test
 {
     public class DateFormatTest
     {
-        private readonly CldrData _data;
-        private readonly CldrLocale _locale;
+        private static readonly CldrData _data;
 
-        private readonly string _fullDateFormat = "EEEE, d MMMM y";
         private readonly string _fullDatePath = "dates.calendars.gregorian.dateFormats.full";
-
-        private readonly string _longDateFormat = "d MMMM y";
         private readonly string _longDatePath = "dates.calendars.gregorian.dateFormats.long";
-
-        private readonly string _shortDateFormat = "d/M/yy";
         private readonly string _shortDatePath = "dates.calendars.gregorian.dateFormats.short";
-
-        private readonly string _mediumDateFormat = "d MMM y";
         private readonly string _mediumDatePath = "dates.calendars.gregorian.dateFormats.medium";
 
-        public DateFormatTest()
+        static DateFormatTest()
         {
             var inputDirectory = @"node_modules";
             var patterns = new PatternCollectionBuilder().Build();
-
-            _locale = new CldrLocale("en", null, "AU");
 
             var builder = new CldrDataBuilder();
             _data = builder.Build(inputDirectory, patterns);
         }
 
         [Fact]
-        public void FullFormatTest()
+        public void FullAUFormatTest()
         {
-            Assert.Equal(_fullDateFormat, _data.GetValue(_fullDatePath, _locale));
+            var locale = new CldrLocale("en", null, "AU");
+            Assert.Equal("EEEE, d MMMM y", _data.GetValue(_fullDatePath, locale));
         }
 
         [Fact]
-        public void LongFormatTest()
+        public void LongAUFormatTest()
         {
-            Assert.Equal(_longDateFormat, _data.GetValue(_longDatePath, _locale));
+            var locale = new CldrLocale("en", null, "AU");
+            Assert.Equal("d MMMM y", _data.GetValue(_longDatePath, locale));
         }
 
         [Fact]
-        public void ShortFormatTest()
+        public void ShortAUFormatTest()
         {
-            Assert.Equal(_shortDateFormat, _data.GetValue(_shortDatePath, _locale));
+            var locale = new CldrLocale("en", null, "AU");
+            Assert.Equal("d/M/yy", _data.GetValue(_shortDatePath, locale));
         }
 
         [Fact]
-        public void MediumFormatTest()
+        public void MediumAUFormatTest()
         {
-            Assert.Equal(_mediumDateFormat, _data.GetValue(_mediumDatePath, _locale));
+            var locale = new CldrLocale("en", null, "AU");
+            Assert.Equal("d MMM y", _data.GetValue(_mediumDatePath, locale));
+        }
+
+        [Fact]
+        public void FullUSFormatTest()
+        {
+            var locale = new CldrLocale("en");
+            Assert.Equal("EEEE, MMMM d, y", _data.GetValue(_fullDatePath, locale));
+        }
+
+        [Fact]
+        public void LongUSFormatTest()
+        {
+            var locale = new CldrLocale("en");
+            Assert.Equal("MMMM d, y", _data.GetValue(_longDatePath, locale));
+        }
+
+        [Fact]
+        public void ShortUSFormatTest()
+        {
+            var locale = new CldrLocale("en");
+            Assert.Equal("M/d/yy", _data.GetValue(_shortDatePath, locale));
+        }
+
+        [Fact]
+        public void MediumUSFormatTest()
+        {
+            var locale = new CldrLocale("en");
+            Assert.Equal("MMM d, y", _data.GetValue(_mediumDatePath, locale));
         }
     }
 }

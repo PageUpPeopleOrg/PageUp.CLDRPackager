@@ -33,4 +33,10 @@
     <Folder Include="Properties\" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Security.Permissions">
+      <Version>4.4.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>

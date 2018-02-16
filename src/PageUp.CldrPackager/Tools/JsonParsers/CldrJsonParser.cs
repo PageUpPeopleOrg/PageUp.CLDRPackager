@@ -1,5 +1,5 @@
 using Newtonsoft.Json.Linq;
-using NJsonSchema;
+using PageUp.NJsonSchema;
 using PageUp.CldrPackager.Extensions;
 using System.IO;
 using System.Reflection;

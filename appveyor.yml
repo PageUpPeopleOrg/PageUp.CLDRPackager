@@ -2,12 +2,10 @@ version: 1.0.{build}
 image: Visual Studio 2017
 build_script:
 - cmd: >-
-    nuget sources add -Name MyGet -Source %NUGET_URL_X%
-    
     dotnet build -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj
 
     dotnet test src/PageUp.CldrPackager.Test/PageUp.CldrPackager.Test.csproj
 
     dotnet pack -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj  /p:Version=%APPVEYOR_BUILD_VERSION% 
 
-    dotnet nuget push src/PageUp.CldrPackager/bin/release/PageUp.CldrPackager.%APPVEYOR_BUILD_VERSION%.nupkg -k %NUGET_API_KEY% -s %NUGET_URL%
+#  dotnet nuget push src/PageUp.CldrPackager/bin/release/PageUp.CldrPackager.%APPVEYOR_BUILD_VERSION%.nupkg -k %NUGET_API_KEY% -s %NUGET_URL%

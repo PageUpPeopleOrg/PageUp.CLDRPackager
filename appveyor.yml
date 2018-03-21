@@ -1,12 +1,11 @@
-version: 1.0.{build}
 image: Visual Studio 2017
 build_script:
 - cmd: >-
-    dotnet build -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj
+    dotnet build -c release src/Main.sln
 
     dotnet test src/PageUp.CldrPackager.Test/PageUp.CldrPackager.Test.csproj
 
-    dotnet pack -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj  /p:Version=%APPVEYOR_BUILD_VERSION% 
+    dotnet pack -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj 
 
 artifacts: 
   - path: ./src/PageUp.CldrPackager/bin/release/*.nupkg

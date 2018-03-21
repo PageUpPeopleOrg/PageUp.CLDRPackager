@@ -16,7 +16,7 @@ namespace PageUp.CldrPackager.Test
 
         static DateFormatTest()
         {
-            var inputDirectory = @"node_modules";
+            var inputDirectory = @"node_modules/@pageup/locale/cldr";
             var patterns = new PatternCollectionBuilder().Build();
 
             var builder = new CldrDataBuilder();

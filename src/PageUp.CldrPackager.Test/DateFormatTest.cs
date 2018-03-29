@@ -1,5 +1,4 @@
 using Xunit;
-using System;
 using PageUp.CldrPackager.Tools;
 using PageUp.CldrPackager.Tools.Subsetting;
 

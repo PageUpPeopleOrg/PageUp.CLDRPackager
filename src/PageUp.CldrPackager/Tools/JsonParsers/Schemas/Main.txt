@@ -51,10 +51,11 @@
       "type": "object",
       "properties": {
         "_number": 				{ "type": "string" },
-        "_cldrVersion":			{ "type": "string" }
+        "_cldrVersion":			{ "type": "string" },
+        "_pageupVersion":		{ "type": "string" }
       },
       "additionalProperties": false,
-      "required": [ "_number", "_cldrVersion" ]
+      "required": [ "_number", "_cldrVersion", "_pageupVersion" ]
     }
   }
 }

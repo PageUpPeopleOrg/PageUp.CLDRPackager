@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="node_modules\%40pageup\locale\cldr\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
@@ -17,9 +21,14 @@
     <ProjectReference Include="..\PageUp.CldrPackager\PageUp.CldrPackager.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="node_modules\%40pageup\locale\cldr\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <Target Name="PreBuild" AfterTargets="PreBuildEvent">
     <Exec Command="npm install @pageup/locale" />
-    <Exec Command="xcopy node_modules $(OutDir)node_modules\ /Y /S /R" />
   </Target>
 
 </Project>

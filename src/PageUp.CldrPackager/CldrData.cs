@@ -17,6 +17,12 @@ namespace PageUp.CldrPackager
         public IReadOnlyList<CldrLocale> AvailableLocales => this.Tree.Locales.Items.ToArray();
 
         /// <summary>
+        /// Gets or sets the pageup version metadata value.
+        /// </summary>
+        [ProtoMember(2, IsRequired = false)]
+        public string PageupVersion { get; set; }
+
+        /// <summary>
         /// <see cref="CldrTree"/> object containing CLDR data.
         /// </summary>
         [ProtoMember(1)]

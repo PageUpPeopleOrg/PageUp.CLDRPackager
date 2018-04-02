@@ -22,7 +22,8 @@ namespace PageUp.CldrPackager.Tools.JsonParsers
                     script: obj.SelectToken("main.*.identity.script")?.ToString(),
                     territory: obj.SelectToken("main.*.identity.territory")?.ToString(),
                     variant: obj.SelectToken("main.*.identity.variant")?.ToString()
-                )
+                ),
+                PageupVersion = obj.SelectToken("main.*.identity.version._pageupVersion").ToString()
             };
         }
 

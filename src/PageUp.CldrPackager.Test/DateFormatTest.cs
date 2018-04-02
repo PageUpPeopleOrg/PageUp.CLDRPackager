@@ -15,11 +15,10 @@ namespace PageUp.CldrPackager.Test
 
         static DateFormatTest()
         {
-            var inputDirectory = @"node_modules/@pageup/locale/cldr";
             var patterns = new PatternCollectionBuilder().Build();
 
             var builder = new CldrDataBuilder();
-            _data = builder.Build(inputDirectory, patterns);
+            _data = builder.Build(TestSettings.CldrFileInputDirectory, patterns);
         }
 
         [Fact]

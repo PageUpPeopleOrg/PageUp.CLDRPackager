@@ -1,6 +1,14 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 build_script:
+before_build:
+- ps: >-
+    Install-Product node ''
+
+    node --version
+
+    npm --version
+
 - cmd: >-
     dotnet build -c release src/Main.sln
 

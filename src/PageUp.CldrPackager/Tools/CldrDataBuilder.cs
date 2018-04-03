@@ -9,13 +9,15 @@ namespace PageUp.CldrPackager.Tools
     public class CldrDataBuilder
     {
         private readonly CldrJsonFileFinder fileFinder;
-        private readonly CldrVersionConsistencyAssurer versionConsistencyAssurer;
+        private readonly VersionFieldConsistencyAssurer cldrVersionConsistencyAssurer;
+        private readonly VersionFieldConsistencyAssurer pageUpVersionConsistencyAssurer;
         private readonly CldrJsonParser[] jsonParsers;
 
         public CldrDataBuilder()
         {
             this.fileFinder = new CldrJsonFileFinder();
-            this.versionConsistencyAssurer = new CldrVersionConsistencyAssurer();
+            this.cldrVersionConsistencyAssurer = new VersionFieldConsistencyAssurer(@"CLDR");
+            this.pageUpVersionConsistencyAssurer = new VersionFieldConsistencyAssurer(@"PageUp");
             this.jsonParsers = new CldrJsonParser[]
             {
                 new AvailableLocalesParser(),
@@ -31,6 +33,7 @@ namespace PageUp.CldrPackager.Tools
         public CldrData Build(string directory, PatternCollection patterns)
         {
             var cldrTreeBuilder = new CldrTreeBuilder();
+            var pageUpVersion = (string)null;
             var done = 0;
 
             foreach (var path in this.fileFinder.FindFiles(directory))
@@ -47,7 +50,9 @@ namespace PageUp.CldrPackager.Tools
                     var metadata = parser.ExtractMetadata(token);
                     parser.RemoveMetadata(token);
 
-                    this.versionConsistencyAssurer.AssureVersionIsConsistent(metadata?.CldrVersion, path);
+                    this.cldrVersionConsistencyAssurer.AssureVersionIsConsistent(metadata?.CldrVersion, path);
+                    this.pageUpVersionConsistencyAssurer.AssureVersionIsConsistent(metadata?.PageUpVersion, path);
+                    pageUpVersion = metadata?.PageUpVersion ?? pageUpVersion;
 
                     token.Subset(patterns);
 
@@ -67,10 +72,11 @@ namespace PageUp.CldrPackager.Tools
             }
             if (done % 100 != 0)
                 Console.WriteLine($"{done} files processed");
-
+            
             return new CldrData
             {
-                Tree = cldrTreeBuilder.Tree
+                Tree = cldrTreeBuilder.Tree,
+                PageUpVersion = pageUpVersion
             };
         }
     }

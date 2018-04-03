@@ -1,10 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFrameworks>net461;netcoreapp2.0</TargetFrameworks>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="node_modules\%40pageup\locale\cldr\en\**" />
+    <Content Include="node_modules\%40pageup\locale\cldr\en-AU\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
@@ -17,9 +22,17 @@
     <ProjectReference Include="..\PageUp.CldrPackager\PageUp.CldrPackager.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="node_modules\%40pageup\locale\cldr\en\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="node_modules\%40pageup\locale\cldr\en-AU\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <Target Name="PreBuild" AfterTargets="PreBuildEvent">
     <Exec Command="npm install @pageup/locale" />
-    <Exec Command="xcopy node_modules $(OutDir)node_modules\ /Y /S /R" />
   </Target>
 
 </Project>

@@ -18,7 +18,7 @@ namespace PageUp.CldrPackager.Test
             var patterns = new PatternCollectionBuilder().Build();
 
             var builder = new CldrDataBuilder();
-            _data = builder.Build(TestSettings.CldrFileInputDirectory, patterns);
+            _data = builder.Build(TestSettings.GetCldrFileInputDirectoryPath(), patterns);
         }
 
         [Fact]

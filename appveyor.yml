@@ -1,12 +1,16 @@
 version: 1.0.{build}
 image: Visual Studio 2017
+install:
+  - ps: Install-Product node ''
+  - node --version
+  - npm --version
+
 build_script:
-- cmd: >-
-    dotnet build -c release src/Main.sln
+  - ps: dotnet build -c release src/Main.sln
+  - ps: dotnet pack -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj 
 
-    dotnet test src/PageUp.CldrPackager.Test/PageUp.CldrPackager.Test.csproj
-
-    dotnet pack -c release src/PageUp.CldrPackager/PageUp.CldrPackager.csproj 
+test_script:
+  - ps: dotnet test src/PageUp.CldrPackager.Test/PageUp.CldrPackager.Test.csproj
 
 artifacts: 
   - path: ./src/PageUp.CldrPackager/bin/release/*.nupkg

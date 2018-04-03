@@ -20,7 +20,7 @@ namespace PageUp.CldrPackager
         /// Gets or sets the pageup version metadata value.
         /// </summary>
         [ProtoMember(2, IsRequired = false)]
-        public string PageupVersion { get; set; }
+        public string PageUpVersion { get; set; }
 
         /// <summary>
         /// <see cref="CldrTree"/> object containing CLDR data.

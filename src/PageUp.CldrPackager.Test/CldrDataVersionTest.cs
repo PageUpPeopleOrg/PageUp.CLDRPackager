@@ -14,8 +14,8 @@ namespace PageUp.CldrPackager.Test
 
             var data = builder.Build(TestSettings.CldrFileInputDirectory, patterns);
 
-            Assert.NotNull(data.PageupVersion);
-            Assert.NotEmpty(data.PageupVersion);
+            Assert.NotNull(data.PageUpVersion);
+            Assert.NotEmpty(data.PageUpVersion);
         }
     }
 }

@@ -4,6 +4,6 @@ namespace PageUp.CldrPackager.Tools
     {
         public string CldrVersion { get; set; }
         public CldrLocale CldrLocale { get; set; }
-        public string PageupVersion { get; set; }
+        public string PageUpVersion { get; set; }
     }
 }

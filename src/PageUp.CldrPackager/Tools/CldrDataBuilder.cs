@@ -51,8 +51,8 @@ namespace PageUp.CldrPackager.Tools
                     parser.RemoveMetadata(token);
 
                     this.cldrVersionConsistencyAssurer.AssureVersionIsConsistent(metadata?.CldrVersion, path);
-                    this.pageUpVersionConsistencyAssurer.AssureVersionIsConsistent(metadata?.PageupVersion, path);
-                    pageUpVersion = metadata?.PageupVersion ?? pageUpVersion;
+                    this.pageUpVersionConsistencyAssurer.AssureVersionIsConsistent(metadata?.PageUpVersion, path);
+                    pageUpVersion = metadata?.PageUpVersion ?? pageUpVersion;
 
                     token.Subset(patterns);
 
@@ -76,7 +76,7 @@ namespace PageUp.CldrPackager.Tools
             return new CldrData
             {
                 Tree = cldrTreeBuilder.Tree,
-                PageupVersion = pageUpVersion
+                PageUpVersion = pageUpVersion
             };
         }
     }
